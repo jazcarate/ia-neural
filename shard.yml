@@ -1,0 +1,13 @@
+name: ia-neural
+version: 0.1.0
+
+authors:
+  - J Florius <j@florius.com.ar>
+
+targets:
+  ia-neural:
+    main: src/ia-neural.cr
+
+crystal: 0.23.1
+
+license: MIT
