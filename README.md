@@ -1,27 +1,11 @@
-# ia-neural
+# General Purpose Neural Network [![Build Status](https://travis-ci.org/jazcarate/ia-neural.svg?branch=master)](https://travis-ci.org/jazcarate/ia-neural)
 
-TODO: Write a description here
+Neural Network to compute stuff
+
+#Uso
+
+- `$ crystal run src/learn.cr` para aprender
 
 ## Installation
 
-TODO: Write installation instructions here
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[your-github-name]/ia-neural/fork )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
-
-## Contributors
-
-- [[your-github-name]](https://github.com/[your-github-name]) J Florius - creator, maintainer
+Tener crystal. [Guía de instalación](https://crystal-lang.org/docs/installation/index.html)
