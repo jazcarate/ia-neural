@@ -2,7 +2,7 @@ require "logger"
 require "./ia-neural"
 
 log = Logger.new(STDOUT)
-log.level = Logger::INFO
+log.level = Logger::ERROR
 
 
 input = Matrix(Float64).from [[5.1, 3.5, 1.4, 0.2],
@@ -18,7 +18,7 @@ results = Matrix(Float64).from [[0.0],
 weights = Matrix(Float64).new 4,1 {0.5}
 
 gen = 1
-while gen < 50
+while gen < 10000
   log.info("--- Generation #{gen} ---")
 
   pred = (input.x weights).map(LearningMaths.sigmoid)
