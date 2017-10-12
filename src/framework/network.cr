@@ -1,5 +1,5 @@
 class Network
-  def initialize(argument)
+  def initialize
       @log = Logger.new(STDOUT)
       @log.level = Logger::ERROR
   end
@@ -9,7 +9,7 @@ class Network
     syn1 = Matrix(Float64).new 4,1 {Random.rand}
 
     gen = 1
-    while true
+    while gen < 100
       @log.info("--- Generation #{gen} ---")
 
       l0 = input

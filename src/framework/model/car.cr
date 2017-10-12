@@ -9,4 +9,8 @@ class Car
 
   def initialize(@year : Float64, @model : Float64, @prev_result : Float64)
   end
+
+  def as_vector
+    [@year, @model, @prev_result]
+  end
 end
