@@ -10,7 +10,7 @@ input = Matrix(Float64).from( cars.map &.car_as_vector )
 results = Matrix(Float64).from( cars.map &.result_as_vector )
 
 
-spec = NetworkSpecs.new [3, 4, 1], Functions::SIGMOID, 5000
+spec = NetworkSpecs.new [3, 4, 2, 1], Functions::SIGMOID, 500000
 
 n = Network.new spec
 weights = n.compute input, results

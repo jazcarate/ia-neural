@@ -49,7 +49,7 @@ class Network
 
       i = 0
       while i < predictions.size-1
-        synapsys[i] += predictions[i-1].t.x deltas.reverse[i]
+        synapsys[i] += predictions[i].t.x deltas.reverse[i]
 
         i += 1
       end
