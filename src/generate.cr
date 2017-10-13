@@ -10,7 +10,7 @@ require "./ia-neural"
 
 
 
-data_path = ARGV.size == 0 ? "./out/test_data.yaml" : ARGV[0]
+data_path = ARGV.size == 0 ? "./config/test_data.yaml" : ARGV[0]
 
 cars = [CarWithResult.new(Car.new(0.0,0.0,1.0), 0.0),
         CarWithResult.new(Car.new(0.0,1.0,1.0), 1.0),
