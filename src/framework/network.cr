@@ -9,7 +9,7 @@ class Network
     syn1 = Matrix(Float64).new 4,1 {Random.rand}
 
     gen = 1
-    while gen < 100
+    while gen < 60000
       @log.info("--- Generation #{gen} ---")
 
       l0 = input
@@ -21,7 +21,7 @@ class Network
       @log.info("Prediction layer 2 error:\t #{l2_error.to_s}")
 
       if gen % 10000 == 0
-        puts l2_error.clone.flatten.map(&.abs).sum
+        puts "Suma de errores: " + l2_error.clone.flatten.map(&.abs).sum
       end
 
       l2_delta = l2_error * l2.map(LearningMaths.sigmoid_d)

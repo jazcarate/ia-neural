@@ -1,7 +1,11 @@
+require "yaml"
+
 class Matrix(T)
-  property data : Array(Array(T))
-  property rows : Int32
-  property columns : Int32
+  YAML.mapping(
+    rows: Int32,
+    columns: Int32,
+    data: Array(Array(T)),
+  )
 
   def initialize(@rows, @columns)
     @data = Array(Array(T)).new(@rows) { Array(T).new(@columns) { T.new(yield) } }
