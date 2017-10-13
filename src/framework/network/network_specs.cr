@@ -1,6 +1,10 @@
 class NetworkSpecs
   YAML.mapping(
-    topology: Array(Array(Int32)),
-    function: 
+    topology: Array(Int32),
+    function: {type: DifferentiableFunction, converter: FunctionConverter}
   )
+
+  def initialize(@topology, @function)
+
+  end
 end
