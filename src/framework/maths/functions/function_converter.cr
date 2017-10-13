@@ -1,5 +1,5 @@
 class FunctionConverter
-  def self.from_json(value : JSON::PullParser) : Time
+  def self.from_yaml(value : YAML::PullParser) : DifferentiableFunction
     case value.read_string.downcase
     when "sig", "sigmoid"
       Functions::SIGMOID

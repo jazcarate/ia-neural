@@ -11,6 +11,7 @@ results = Matrix(Float64).from( cars.map &.result_as_vector )
 
 
 spec = NetworkSpecs.new [3, 4, 2, 1], Functions::SIGMOID, 500000
+File.open("network_specs.yaml", "w") { |f| YAML.dump(spec, f) }
 
 n = Network.new spec
 weights = n.compute input, results
