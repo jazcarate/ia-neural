@@ -1,7 +1,7 @@
 class Network
   def initialize(@network_spec : NetworkSpecs)
       @log = Logger.new(STDOUT)
-      @log.level = Logger::DEBUG
+      @log.level = Logger::INFO
   end
 
   def setup_synapsys(topology)
@@ -36,12 +36,10 @@ class Network
       # Back Propagation
       last_delta = Matrix(Float64).new 1, 1 # Should never be used
       deltas = synapsys.reverse.map_with_index do |syn, index|
-        @log.debug "\n#{index}\t last_delta:\t #{last_delta.to_s}"
-
         if index == 0
           local_error = error
         else
-          local_error = last_delta.x syn.t
+          local_error = last_delta.x synapsys.reverse[index-1].t
         end
 
         last_delta = local_error * predictions.reverse[index].map(@network_spec.function.fn_d)
@@ -49,9 +47,9 @@ class Network
         last_delta.clone
       end
 
-      synapsys = synapsys.zip(deltas).map_with_index do |syn_delta, index|
-        syn = syn_delta.first
-        delta = syn_delta.last
+      synapsys = synapsys.zip(deltas.reverse).map_with_index do |syn_delta, index|
+        syn = syn_delta[0]
+        delta = syn_delta[1]
 
         new_syn = syn.t.x delta
         @log.debug("New syn#{index}:\t #{new_syn.to_s}")
