@@ -6,7 +6,7 @@ input = (Vector(Float64).from_json(ARGV[1])).as_matrix
 expected_value = ARGV[2].to_f
 
 
-l1 = (input.x weights[0]).map(LearningMaths.sigmoid)
-l2 = (l1.x weights[1]).map(LearningMaths.sigmoid)[0][0]
+l1 = (input.x weights[0]).map Functions::SIGMOID.fn
+l2 = (l1.x weights[1]).map(Functions::SIGMOID.fn)[0][0]
 
 puts "Diferencia entre el resultado #{l2} y #{expected_value}: #{expected_value - l2}"
