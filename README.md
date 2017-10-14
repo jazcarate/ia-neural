@@ -6,7 +6,7 @@ Neural Network to compute stuff
 
 - `$ crystal run src/generate.cr` Para generar la data para entrenar a la red neuronal
 - `$ crystal run src/learn.cr` para aprender
-- `$ crystal run src/predict.cr -- ./out/weights_data.yaml "{\"data\": [0.0, 0.0, 1.0]}" 1.0`
+- `$ crystal run src/predict.cr -- ./out/weights_data.yaml "{\"data\": [0.0, 0.0, 1.0]}" 0.0` para chekear que un dato
 
 ## Installation
 

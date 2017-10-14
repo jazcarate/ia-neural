@@ -2,6 +2,6 @@
 function: sigmoid
 generations: 5000
 topology:
-  - 4
   - 3
+  - 4
   - 1

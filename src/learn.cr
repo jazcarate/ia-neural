@@ -10,10 +10,11 @@ cars = Array(CarWithResult).from_yaml( File.read input_path )
 input = Matrix(Float64).from( cars.map &.car_as_vector )
 results = Matrix(Float64).from( cars.map &.result_as_vector )
 
+puts "Leyendo la especificación de la red de #{network_spec}"
 spec = NetworkSpecs.from_yaml( File.read network_spec )
 
 n = Network.new spec
 weights = n.compute input, results
 
 File.open(output_path, "w") { |f| weights.to_yaml(f) }
-puts "Done! pesos: #{output_path}"
+puts "Done! pesos guardados en: #{output_path}"
