@@ -4,7 +4,7 @@ class Network
       @log.level = Logger::INFO
   end
 
-  def setup_synapsys(topology)
+  def setup_random_synapsys(topology)
     synapsys = [] of Matrix(Float64)
     topology.each_cons(2) do |cons|
       synapsys << Matrix(Float64).new cons[0], cons[1] {Random.rand}
@@ -12,18 +12,23 @@ class Network
     synapsys
   end
 
+  def predict(input, synapsys)
+    acc = input
+    predictions = synapsys.map do |syn|
+      acc = (acc.x syn).map(@network_spec.function.fn)
+    end
+    predictions.unshift(input)
+  end
+
   def compute(input, results)
-    synapsys = setup_synapsys @network_spec.topology
+    synapsys = setup_random_synapsys @network_spec.topology
 
     gen = 1
     while gen < @network_spec.generations
       @log.debug("--- Generation #{gen} ---")
 
       # Forward Prediction
-      acc = input
-      predictions = synapsys.map do |syn|
-        acc = (acc.x syn).map(@network_spec.function.fn)
-      end
+      predictions = predict input, synapsys
       predictions.unshift(input)
 
       @log.debug("Prediccion :\t\t #{predictions.last.to_s}")
