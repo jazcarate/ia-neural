@@ -1,7 +1,7 @@
 class Network
   def initialize(@network_spec : NetworkSpecs)
       @log = Logger.new(STDOUT)
-      @log.level = Logger::INFO
+      @log.level = Logger::DEBUG
   end
 
   def setup_random_synapsys(topology)
@@ -29,9 +29,8 @@ class Network
 
       # Forward Prediction
       predictions = predict input, synapsys
-      predictions.unshift(input)
 
-      @log.debug("Prediccion :\t\t #{predictions.last.to_s}")
+      @log.debug("Final prediccion :\t\t #{predictions.last.to_s}")
 
       error = results - predictions.last
 
