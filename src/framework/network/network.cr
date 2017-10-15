@@ -1,7 +1,7 @@
 class Network
   def initialize(@network_spec : NetworkSpecs)
       @log = Logger.new(STDOUT)
-      @log.level = Logger::DEBUG
+      @log.level = Logger::INFO
   end
 
   def setup_random_synapsys(topology)
