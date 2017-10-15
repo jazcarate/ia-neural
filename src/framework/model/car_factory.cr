@@ -7,14 +7,14 @@ class CarFactory
 
 
   def self.random()
-    car = Car.new((int_random from: 2000, to: 2017),
+    car = Car.new((int_random from: 0, to: 10),
                   (int_random from: 1, to: 5),
                   (int_random from: RESULT::REJECTED.value, to: RESULT::APPROVED.value))
     CarWithResult.new(car, evaluate(car).value.to_f)
   end
 
   def self.int_random(from, to)
-    (Random.new.rand(to-from)+from).to_f
+    ((Random.new.rand(to-from)+from).to_f)/10
   end
 
 
@@ -24,10 +24,10 @@ class CarFactory
   # Model 4 and 5 will allyas be aproved
 
   def self.evaluate(car)
-    if car.year < 2010
+    if car.year < 0.5
       RESULT::REJECTED
-    elsif car.model <= 3
-      if car.prev_result > 0.5 #Conditional
+    elsif car.model <= 0.3
+      if car.prev_result > RESULT::CONDITIONAL.value
         RESULT::REJECTED
       else
         RESULT::CONDITIONAL

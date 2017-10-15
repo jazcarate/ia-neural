@@ -3,7 +3,7 @@ require "option_parser"
 
 input_path = "./config/test_data.yaml"
 network_path = "./config/network_specs.yaml"
-output_path = "./config/network_specs.yaml"
+output_path = "./out/weights_data.yaml"
 input_string = "1.0, 2.0, 3.0"
 expected_value = 0.0
 

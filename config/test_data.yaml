@@ -1,26 +1,26 @@
 ---
 - car:
-    year: 2004.0
-    model: 3.0
-    prev_result: 1.0
+    year: 0.1
+    model: 0.4
+    prev_result: 0.0
   result: 0.0
 - car:
-    year: 2010.0
-    model: 1.0
+    year: 0.4
+    model: 0.4
     prev_result: 0.0
-  result: 1.0
+  result: 0.0
 - car:
-    year: 2010.0
-    model: 4.0
-    prev_result: 1.0
+    year: 0.0
+    model: 0.3
+    prev_result: 0.0
+  result: 0.0
+- car:
+    year: 0.9
+    model: 0.4
+    prev_result: 0.1
   result: 2.0
 - car:
-    year: 2004.0
-    model: 3.0
-    prev_result: 0.0
-  result: 0.0
-- car:
-    year: 2015.0
-    model: 3.0
-    prev_result: 0.0
+    year: 0.6
+    model: 0.1
+    prev_result: 0.1
   result: 1.0

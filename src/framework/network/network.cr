@@ -34,7 +34,7 @@ class Network
 
       error = results - predictions.last
 
-      if gen % 10000 == 0
+      if gen % gen/4 == 0
         @log.debug "Partial error sum: #{error.flatten.map(&.abs).sum}"
       end
 

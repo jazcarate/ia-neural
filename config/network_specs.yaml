@@ -1,6 +1,6 @@
 ---
 function: sigmoid
-generations: 5000
+generations: 80000
 topology:
   - 3
   - 4
