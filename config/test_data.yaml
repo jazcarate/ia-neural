@@ -1,26 +1,76 @@
 ---
 - car:
-    year: 0.1
+    year: 0.3
     model: 0.4
     prev_result: 0.0
-  result: 0.0
-- car:
-    year: 0.4
-    model: 0.4
-    prev_result: 0.0
-  result: 0.0
+  result: 0.2
 - car:
     year: 0.0
     model: 0.3
-    prev_result: 0.0
-  result: 0.0
-- car:
-    year: 0.9
-    model: 0.4
     prev_result: 0.1
-  result: 2.0
+  result: 0.1
+- car:
+    year: 0.5
+    model: 0.3
+    prev_result: 0.0
+  result: 0.1
+- car:
+    year: 0.3
+    model: 0.1
+    prev_result: 0.0
+  result: 0.1
+- car:
+    year: 0.3
+    model: 0.2
+    prev_result: 0.0
+  result: 0.1
+- car:
+    year: 0.5
+    model: 0.1
+    prev_result: 0.1
+  result: 0.1
 - car:
     year: 0.6
     model: 0.1
     prev_result: 0.1
-  result: 1.0
+  result: 0.0
+- car:
+    year: 0.1
+    model: 0.4
+    prev_result: 0.1
+  result: 0.2
+- car:
+    year: 0.3
+    model: 0.4
+    prev_result: 0.0
+  result: 0.2
+- car:
+    year: 0.0
+    model: 0.2
+    prev_result: 0.1
+  result: 0.1
+- car:
+    year: 0.8
+    model: 0.3
+    prev_result: 0.1
+  result: 0.0
+- car:
+    year: 0.9
+    model: 0.3
+    prev_result: 0.1
+  result: 0.0
+- car:
+    year: 0.8
+    model: 0.2
+    prev_result: 0.0
+  result: 0.0
+- car:
+    year: 0.7
+    model: 0.1
+    prev_result: 0.1
+  result: 0.0
+- car:
+    year: 0.2
+    model: 0.4
+    prev_result: 0.0
+  result: 0.2
