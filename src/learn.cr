@@ -11,7 +11,7 @@ OptionParser.parse! do |parser|
   parser.banner = "Usage: learn [-i PATH][-n PATH][-o PATH]"
   parser.on("-i PATH", "--input=PATH", "Path a la entrada a entrenar (posiblemente generados por `generate`)")  { |path| input_path = path }
   parser.on("-n PATH", "--network=PATH", "Path a la configuración de la red neuronal")  { |path| network_path = path }
-  parser.on("-o PATH", "--output=PATH", "Path de la salida de los pesos") { |path| output_path = input }
+  parser.on("-o PATH", "--output=PATH", "Path de la salida de los pesos") { |path| output_path = path }
   parser.on("-h", "--help", "Mostrar esta ayuda") { puts parser }
 end
 
@@ -22,7 +22,7 @@ cars = Array(CarWithResult).from_yaml( File.read input_path )
 input = Matrix(Float64).from( cars.map &.car_as_vector )
 results = Matrix(Float64).from( cars.map &.result_as_vector )
 
-puts "Leyendo la especificación de la red de #{network_spec}"
+puts "Leyendo la especificación de la red de #{network_path}"
 spec = NetworkSpecs.from_yaml( File.read network_path )
 
 n = Network.new spec

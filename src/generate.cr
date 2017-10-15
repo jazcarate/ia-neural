@@ -1,4 +1,5 @@
 require "./ia-neural"
+require "option_parser"
 
 # La idea es generar información sobre:
 # Año del vehículo
@@ -9,13 +10,21 @@ require "./ia-neural"
 # Aprobado, Condicional o Rechazado
 
 
+verbose = false
+output_path = "./config/test_data.yaml"
+generation_amount = 5
 
-data_path = ARGV.size == 0 ? "./config/test_data.yaml" : ARGV[0]
+OptionParser.parse! do |parser|
+  parser.banner = "Usage: generate [-n CANTIDAD][-o OUTPUT][-v]"
+  parser.on("-n CANTIDAD", "--number=CANTIDAD", "Cantidad de la población a generar")  { |amount| generation_amount = amount.to_i }
+  parser.on("-o PATH", "--output=PATH", "Path de la salida de la información generada") { |path| output_path = path }
+  parser.on("-v", "--verbose", "imprimir resultado por pantalla") { verbose = true }
+  parser.on("-h", "--help", "Mostrar esta ayuda") { puts parser }
+end
 
-cars = [CarWithResult.new(Car.new(0.0,0.0,1.0), 0.0),
-        CarWithResult.new(Car.new(0.0,1.0,1.0), 1.0),
-        CarWithResult.new(Car.new(1.0,0.0,1.0), 1.0),
-        CarWithResult.new(Car.new(1.0,1.0,1.0), 0.0)]
+cars = Array.new(generation_amount) { CarFactory.random() }
 
-File.open(data_path, "w") { |f| cars.to_yaml(f) }
-puts "Done! datos: #{data_path}"
+puts cars.to_yaml if verbose
+
+File.open(output_path, "w") { |f| cars.to_yaml(f) }
+puts "Done! datos: #{output_path}"
